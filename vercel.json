@@ -1,9 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "index.py": {
-      "runtime": "python3.11",
-      "includeFiles": "data/**"
+    // if your function file is api/metrics.py:
+    "api/**/*.py": {
+      "includeFiles": "data/**"   // ship telemetry with the function
     }
+
+    // OR, if your function file is index.py at the repo root:
+    // "index.py": { "includeFiles": "data/**" }
   }
 }
