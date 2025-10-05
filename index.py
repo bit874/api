@@ -41,7 +41,7 @@ def load_records():
     path = next((p for p in DATA_PATHS if os.path.exists(p)), None)
     if not path:
         raise FileNotFoundError(
-            "Expected data/telemetry.jsonl next to the project root. "
+            "Expected data/telemetry.json next to the project root. "
             "Please add the sample bundle there."
         )
     records = []
@@ -61,7 +61,7 @@ def load_records():
             if region:
                 records.append({"region": region, "latency_ms": lat, "uptime": uptime})
     if not records:
-        raise RuntimeError("No usable telemetry rows found in telemetry.jsonl.")
+        raise RuntimeError("No usable telemetry rows found in telemetry.json.")
     return records
 
 RECORDS = load_records()
