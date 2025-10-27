@@ -1,1 +1,4 @@
-fastapi==0.117.1
+fastapi
+requests
+beautifulsoup4
+lxml
