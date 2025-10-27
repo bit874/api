@@ -1,12 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    // if your function file is api/metrics.py:
-    "api/**/*.py": {
-      "includeFiles": "data/**"   // ship telemetry with the function
+    "**/*.py": {
+      "maxDuration": 15,
+      "memory": 1024,
+      "regions": ["bom1"], 
+      "excludeFiles": "{tests/**,__pycache__/**,**/*.test.py,static/**,assets/**}"
     }
-
-    // OR, if your function file is index.py at the repo root:
-    // "index.py": { "includeFiles": "data/**" }
   }
 }
