@@ -59,7 +59,7 @@ def extract_headings_markdown(html: str, page_title: str):
     return "\n".join(lines)
 
 # IMPORTANT: route is "/" so final URL is /api/outline?country=...
-@app.get("/", response_class=PlainTextResponse)
+@app.get("/outline", response_class=PlainTextResponse)
 def outline(country: str = Query(..., description="Country name (e.g., Vanuatu)")):
     url, title = get_canonical_wiki_page(country)
     if not url or not title:
